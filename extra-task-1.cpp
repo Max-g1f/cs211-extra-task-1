@@ -144,6 +144,7 @@ int get_seconds(int sec)
     it is currently 01:03:20 (hh:mm:ss).
 */
 
+
 double time_to_utc(int utc_offset, double time)
 {
     assert((-12 <= utc_offset) && (utc_offset <= 14));
@@ -175,8 +176,11 @@ double time_to_utc(int utc_offset, double time)
     */
 }
 
+
 double time_from_utc(int utc_offset, double time)
 {
+    assert((-12 <= utc_offset) && (utc_offset <= 14));
+
     return to_24_hour_clock((time + utc_offset) < 0 ? 24 + time - utc_offset : time - utc_offset);
     /*
         Return UTC time in time zone utc_offset.
@@ -206,6 +210,7 @@ double time_from_utc(int utc_offset, double time)
         0.0
     */
 }
+
 
 int main()
 {
