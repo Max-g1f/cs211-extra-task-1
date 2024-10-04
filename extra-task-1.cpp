@@ -113,6 +113,11 @@ int get_hours(int sec)
 }
 
 
+int get_minutes(int sec)
+{
+    return (sec % 3600) / 60;
+}
+
 /*
     Implement three functions
         * get_hours
@@ -226,6 +231,12 @@ int main()
     assert(get_hours(3800) == 1);
     assert(get_hours(7199) == 1);
     assert(get_hours(10800) == 3);
+
+    //get_minutes
+    assert(get_minutes(3800) == 3);
+    assert(get_minutes(7199) == 59);
+    assert(get_minutes(10800) == 0);
+
 
 
 }
