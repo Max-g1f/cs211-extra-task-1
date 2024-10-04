@@ -118,6 +118,11 @@ int get_minutes(int sec)
     return (sec % 3600) / 60;
 }
 
+
+int get_seconds(int sec)
+{
+    return (sec % 3600) % 60;
+}
 /*
     Implement three functions
         * get_hours
@@ -227,15 +232,23 @@ int main()
     assert(fabs(to_24_hour_clock(4) - 4) < DBL_EPSILON);
     assert(fabs(to_24_hour_clock(28.5) - 4.5) < DBL_EPSILON);
 
+
     //get_hours
     assert(get_hours(3800) == 1);
     assert(get_hours(7199) == 1);
     assert(get_hours(10800) == 3);
 
+
     //get_minutes
     assert(get_minutes(3800) == 3);
     assert(get_minutes(7199) == 59);
     assert(get_minutes(10800) == 0);
+
+
+    //get_seconds
+    assert(get_seconds(3800) == 20);
+    assert(get_seconds(7199) == 59);
+    assert(get_seconds(10800) == 0);
 
 
 
